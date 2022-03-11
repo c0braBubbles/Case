@@ -6,9 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamisk banner</title>
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <h1>hei verden!</h1>
+    <div id="dynamicBanner" class="fadeInDown">
+        <div id="imgDiv" class="fadeIn first">
+            <img id="bilde" alt="bilde">
+        </div>
+        <div id="txtDiv">
+            <p id="h2" class="fadeIn third"></p>
+            <p id="h1" class="fadeIn fourth"></p>
+        </div>
+    </div>
+
+
+    <!-- Text -->
+    <button id="btn">Trykk meg</button>
+    <p id="testtxt" style="display: none;">text</p>
+
 
     <script src="script.js"></script>
 </body>
