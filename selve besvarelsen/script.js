@@ -9,6 +9,14 @@ let pretitletxtcolor = "#000000";
 let highlight_color = "#FFFF00";
 let highlight_style = "italic"; // kan være "bold" og "italic"
 
+// ordene som vi vil sette stil på (dynamiske)
+let highLightedWords = [
+    "jobbreise",
+    "hverdag",
+    "intelligent",
+    "funksjoner"
+];
+
 
 // Henter DOM setter verdier og style fra de dynamiske variablene
 var bilde = document.getElementById("bilde");
@@ -38,6 +46,17 @@ var imgDiv = document.getElementById("imgDiv");
 // Ønske om å sette farge og stil på ord i tekstene:
 // funksjon som itererer gjennom setningene, splitter med " " og setter style
 // kan kanskje bruke ``
+function setStyle(pTitleWord, titleWord) {
+    let h2String = h2.innerHTML;
+    let h1String = h1.innerHTML;
+
+    if (h2String.includes(pTitleWord)) {
+        console.log("fant ordet i h2: " + pTitleWord);
+    }
+    if (h1String.includes(titleWord)) {
+        console.log("fant ordet i h1: " + titleWord);
+    }
+}
 
 
 var texts = [
@@ -62,15 +81,17 @@ setInterval(function () {
     $("#h2").html(texts[i]);
     $("#h2").slideDown("slow");
 
-    $("#h1").html(texts[i+1]);
+    $("#h1").html(texts[i + 1]);
     $("#h1").slideDown("slow");
+
+    // setStyle(highLightedWords[i], highLightedWords[i + 1]);
 
     if (i == texts.length) {
         i = 0;
         fitText();
     }
     else {
-        i+=2;
+        i += 2;
         fitText();
     }
 }, 5000);
@@ -82,6 +103,19 @@ $(document).ready(function () {
         $("#testtxt").slideDown("slow");
     });
 });
+function Change(word) {
+    //find all html elements on the page inside the body tag
+    let elems = document.getElementById("body *");
+    // get our replacement ready
+    let span = "<span style='color: red'>" + word + "</span>";
+    //loop through all the elements
+    for (let x = 0; x < elems.length; x++) {
+      // for each element, 'split' by the word we're looking for, then 'join' it back with the replacement
+      elems[x].innerHTML = elems[x].innerHTML.split(word).join(span);
+    }
+  }
+  
+  Change('Hello', 'Goodbye');
 
 
 
@@ -102,7 +136,7 @@ function fitText() {
                     let fontSize = parseInt(h2.style.fontSize);
                     h2.style.fontSize = `${fontSize - 1}px`;
                     fitText();
-                } else {}
+                } else { }
             }
         }
     });
@@ -126,7 +160,7 @@ function fitText() {
                     h1.style.fontSize = `${fontSize - 1}px`;
                     h2.style.fontSize = `${fontSize - 5}px`;
                     fitText();
-                } else {}
+                } else { }
             }
         }
     });
