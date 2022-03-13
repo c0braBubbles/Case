@@ -26,7 +26,7 @@ h1.innerHTML = title;       // disse skal kommenteres ut når du er ferdig
 var h2 = document.getElementById("h2");
 h2.style.color = pretitletxtcolor;
 h2.style.fontSize = "25px";
-h2.style.fontStyle = highlight_style;
+// h2.style.fontStyle = highlight_style;
 h2.innerHTML = pretitle;    // disse skal kommenteres ut når du er ferdig
 
 var txtDiv = document.getElementById("txtDiv");

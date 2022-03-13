@@ -5,26 +5,52 @@
     width: 580px;
     height: 500px; 
     background-color: #8699a6;
+    box-shadow: 5px 10px 18px #888888;
+    transition: 0.3s;
+}
+#dynamicBanner:hover {
+    box-shadow: 7px 12px 20px #424141;
+    transition: 0.3s;
 }
 
 
 /* bilde-diven og bildet */
 #imgDiv {
     width: 100%;
+    display:inline-block;
+    overflow: hidden;
 }
 #imgDiv img {
     width: 100%;
+    object-fit:cover;
+	-moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    -webkit-filter:blur(0.4px);
+    filter: blur(0.4px);
+    opacity: 0.4;
+}
+#imgDiv img:hover {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-filter:blur(0px);
+    filter: blur(0px);
+    opacity: 0.6;
 }
 
-
+#txtDiv {
+    box-shadow: 0px 5px 10px #424141;
+}
 #txtDiv p {
     letter-spacing: 1px;
     margin: 5px;
-    font-family: 'Karla', sans-serif;
+    /* font-family: 'Karla', sans-serif; */
+    font-family: 'Sarabun', sans-serif;
 }
 
 
-/* Tester fadein stuff */
+/* Animasjon onload som fader inn banneret */
 .fadeInDown {
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
@@ -60,7 +86,6 @@
     }
 }
   
-/* Simple CSS3 Fade-in Animation */
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
@@ -102,9 +127,4 @@
     -webkit-animation-delay: 1s;
     -moz-animation-delay: 1s;
     animation-delay: 1s;
-}
-
-.me {
-    color: green;
-  }
-  
+} 
