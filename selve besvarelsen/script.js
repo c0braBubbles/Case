@@ -1,6 +1,6 @@
 // Dynamiske variabler hentet fra oppgaveteksten
-let title = "En bedre hverdag? Last ned e-guide for Microsoft Teams";   // H1 og H2 kan være alt fra 3 ord til lang tekst
-let pretitle = "Ikke gå i denne WiFi-fella når du er på jobbreise";
+let title = "Dette gjør TV-ekspert Trond når han skal importere ny TV";   // H1 og H2 kan være alt fra 3 ord til lang tekst
+let pretitle = "Dårlig bildekvalitet?";
 let Imgurl = "https://www.newwork.no/CaS/NW_sandbox/testbilde.jpg";
 let bordercolor = "#333333";
 let textbox_bgcolor = "#666666";
@@ -8,14 +8,10 @@ let titletxtcolor = "#000000";
 let pretitletxtcolor = "#000000";
 let highlight_color = "#FFFF00";
 let highlight_style = "italic"; // kan være "bold" og "italic"
+let highlight_style2 = "bold"; // kan være "bold" og "italic"
 
 // ordene som vi vil sette stil på (dynamiske)
-let highLightedWords = [
-    "jobbreise",
-    "hverdag",
-    "intelligent",
-    "funksjoner"
-];
+let highLighteWords = ["jobbreise", "Microsoft Teams"];
 
 
 // Henter DOM setter verdier og style fra de dynamiske variablene
@@ -43,22 +39,6 @@ dynamicDiv.style.border = borderStyle;
 var imgDiv = document.getElementById("imgDiv");
 
 
-// Ønske om å sette farge og stil på ord i tekstene:
-// funksjon som itererer gjennom setningene, splitter med " " og setter style
-// kan kanskje bruke ``
-function setStyle(pTitleWord, titleWord) {
-    let h2String = h2.innerHTML;
-    let h1String = h1.innerHTML;
-
-    if (h2String.includes(pTitleWord)) {
-        console.log("fant ordet i h2: " + pTitleWord);
-    }
-    if (h1String.includes(titleWord)) {
-        console.log("fant ordet i h1: " + titleWord);
-    }
-}
-
-
 var texts = [
     "Ikke gå i denne WiFi-fella når du er på jobbreise",
     "En bedre hverdag? Last ned e-guide for Microsoft Teams",
@@ -69,54 +49,46 @@ var texts = [
     "Automatisert hverdag",
     "I denne leiligheten er det ingen lysbrytere",
 
-    "Dårlig bildekvalitet?",
-    "Dette gjør TV-ekspert Trond når han skal importere ny TV",
-
     "",
-    ""
+    "", 
+    
+    "Dårlig bildekvalitet?", 
+    "Dette gjør TV-ekspert Trond når han skal importere ny TV"
 ];
-
 let i = 0;
+
+// if(h2.innerHTML.includes(highLighteWords[0])) {
+//     var element = document.querySelector(".testing");
+//     h2.innerHTML = h2.innerHTML.replace(highLighteWords[0], `<span style="color: ${highlight_color}; font-style: ${highlight_style2}">${highLighteWords[0]}</span>`);
+// }
+// if(h1.innerHTML.includes(highLighteWords[1])) {
+//     var element = document.querySelector(".testing");
+//     h1.innerHTML = h1.innerHTML.replace(highLighteWords[1], `<span style="color: ${highlight_color}; font-style: ${highlight_style2}">${highLighteWords[1]}</span>`);
+// }
+
 setInterval(function () {
+    // h2.innerHTML = texts[i]; 
+    // h1.innerHTML = texts[i + 1]; 
     $("#h2").html(texts[i]);
-    $("#h2").slideDown("slow");
-
     $("#h1").html(texts[i + 1]);
-    $("#h1").slideDown("slow");
+    fitText();
 
-    // setStyle(highLightedWords[i], highLightedWords[i + 1]);
+    if(h2.innerHTML.includes(highLighteWords[0])) {
+        var element = document.querySelector(".testing");
+        h2.innerHTML = h2.innerHTML.replace(highLighteWords[0], `<span style="color: ${highlight_color}; font-style: ${highlight_style2}">${highLighteWords[0]}</span>`);
+    }
+    if(h1.innerHTML.includes(highLighteWords[1])) {
+        var element = document.querySelector(".testing");
+        h1.innerHTML = h1.innerHTML.replace(highLighteWords[1], `<span style="color: ${highlight_color}; font-style: ${highlight_style2}">${highLighteWords[1]}</span>`);
+    }
 
     if (i == texts.length) {
         i = 0;
-        fitText();
     }
     else {
         i += 2;
-        fitText();
     }
 }, 5000);
-
-
-// test
-$(document).ready(function () {
-    $("#btn").click(function () {
-        $("#testtxt").slideDown("slow");
-    });
-});
-function Change(word) {
-    //find all html elements on the page inside the body tag
-    let elems = document.getElementById("body *");
-    // get our replacement ready
-    let span = "<span style='color: red'>" + word + "</span>";
-    //loop through all the elements
-    for (let x = 0; x < elems.length; x++) {
-      // for each element, 'split' by the word we're looking for, then 'join' it back with the replacement
-      elems[x].innerHTML = elems[x].innerHTML.split(word).join(span);
-    }
-  }
-  
-  Change('Hello', 'Goodbye');
-
 
 
 function fitText() {
@@ -136,7 +108,7 @@ function fitText() {
                     let fontSize = parseInt(h2.style.fontSize);
                     h2.style.fontSize = `${fontSize - 1}px`;
                     fitText();
-                } else { }
+                }
             }
         }
     });
@@ -160,9 +132,8 @@ function fitText() {
                     h1.style.fontSize = `${fontSize - 1}px`;
                     h2.style.fontSize = `${fontSize - 5}px`;
                     fitText();
-                } else { }
+                } 
             }
         }
     });
 }
-fitText();

@@ -4,29 +4,22 @@
     display: block;
     width: 580px;
     height: 500px; 
-    /* background-color: #30414b; */
     background-color: #8699a6;
 }
 
 
 /* bilde-diven og bildet */
 #imgDiv {
-    /* margin: 0 auto; */
-    /* display: block; */
     width: 100%;
 }
 #imgDiv img {
     width: 100%;
 }
 
-#txtDiv {
-    height: auto;
-    margin: auto;
-}
+
 #txtDiv p {
     letter-spacing: 1px;
     margin: 5px;
-    /* font-size: 25px; */
     font-family: 'Karla', sans-serif;
 }
 
@@ -110,3 +103,8 @@
     -moz-animation-delay: 1s;
     animation-delay: 1s;
 }
+
+.me {
+    color: green;
+  }
+  
