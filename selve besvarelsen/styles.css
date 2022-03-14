@@ -36,7 +36,7 @@
     transform: scale(1.1);
     -webkit-filter:blur(0px);
     filter: blur(0px);
-    opacity: 0.6;
+    opacity: 1;
 }
 
 #txtDiv {
