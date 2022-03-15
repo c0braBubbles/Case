@@ -49,9 +49,9 @@ var texts = [
     "I denne leiligheten er det ingen lysbrytere",
 
     "",
-    "", 
-    
-    "Dårlig bildekvalitet?", 
+    "",
+
+    "Dårlig bildekvalitet?",
     "Dette gjør TV-ekspert Trond når han skal importere ny TV"
 ];
 let i = 0;  // teller. Brukes for å iterere gjennom arrayen med tekst
@@ -72,11 +72,11 @@ setInterval(function () {
     fitText();
 
     // erstatter søkeordet med et span-element som har style om teksten inneholder ordet. 
-    if(h2.innerHTML.includes(highLighteWords[0])) {
+    if (h2.innerHTML.includes(highLighteWords[0])) {
         var element = document.querySelector(".testing");
         h2.innerHTML = h2.innerHTML.replace(highLighteWords[0], `<span style="color: ${highlight_color}; font-style: ${highlight_style2}">${highLighteWords[0]}</span>`);
     }
-    if(h1.innerHTML.includes(highLighteWords[1])) {
+    if (h1.innerHTML.includes(highLighteWords[1])) {
         var element = document.querySelector(".testing");
         h1.innerHTML = h1.innerHTML.replace(highLighteWords[1], `<span style="color: ${highlight_color}; font-style: ${highlight_style2}">${highLighteWords[1]}</span>`);
     }
@@ -140,7 +140,7 @@ function fitText() {
                     // ut om. Men vi må selvom sjekke h2 i tilfelle
                     h2.style.fontSize = `${fontSize - 5}px`;
                     fitText();
-                } 
+                }
             }
         }
     });
